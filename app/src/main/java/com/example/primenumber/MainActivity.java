@@ -1,7 +1,7 @@
 package com.example.primenumber;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.lang.Math;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,13 +27,19 @@ public class MainActivity extends AppCompatActivity {
         String num = et.getText().toString();
         long n = Long.parseLong(num);
         int c=0;
-        for(long i=1; i<=n; i++ )
+        double k = Math.sqrt(n);
+        long m =(long)k;
+        if(n==1 || n==0) {
+            c=1;
+        }
+        for(long i=2; i<=m; i++ )
         {
             if(n%i == 0){
-                c++;
+                c=1;
+                break;
             }
         }
-         if(c==2) {
+         if(c==0) {
              tv.setText(n+" : is a Prime Number");
             }
          else {
